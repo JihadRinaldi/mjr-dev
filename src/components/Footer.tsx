@@ -1,11 +1,10 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 
 const socialLinks = [
-  { name: 'GitHub', href: '#', icon: FaGithub },
-  { name: 'LinkedIn', href: '#', icon: FaLinkedin },
-  { name: 'Twitter', href: '#', icon: FaTwitter },
-  { name: 'Email', href: '#', icon: FaEnvelope },
+  { name: 'GitHub', href: 'https://github.com/JihadRinaldi', icon: FaGithub },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/JihadRinaldi', icon: FaLinkedin },
+  { name: 'Email', href: 'mailto:jihadmjr@gmail.com', icon: FaEnvelope },
 ];
 
 export function Footer() {
@@ -15,7 +14,11 @@ export function Footer() {
         <div className="flex justify-center space-x-6 md:order-2">
           {socialLinks.map((item) => (
             <Button key={item.name} variant="ghost" size="icon" asChild>
-              <a href={item.href} className="text-muted-foreground hover:text-primary">
+              <a 
+                href={item.href} 
+                className="text-muted-foreground hover:text-primary"
+                {...(item.name !== 'Email' && { target: '_blank', rel: 'noopener noreferrer' })}
+              >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-5 w-5" />
               </a>

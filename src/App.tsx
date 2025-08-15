@@ -3,11 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { Layout } from "@/components/Layout";
 import { NotFound } from "@/pages/NotFound";
-import About from "@/pages/About";
-import Dashboard from "@/pages/Dashboard";
-import Work from "@/pages/Work";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +13,16 @@ const App = () => {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/work" element={<Work />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/" element={
+                <div className="container mx-auto px-4 py-8">
+                  <div className="text-center">
+                    <h1 className="text-4xl font-bold mb-4">MJR Dev Portfolio</h1>
+                    <p className="text-lg text-muted-foreground">
+                      Welcome to Muhammad Rinaldi's Developer Portfolio
+                    </p>
+                  </div>
+                </div>
+              } />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>

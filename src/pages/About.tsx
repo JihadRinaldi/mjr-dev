@@ -54,6 +54,11 @@ const About = () => {
             <div className="mt-16 lg:col-span-5 lg:mt-0">
               <div className="lg:pl-8">
                 {/* Profile Picture */}
+                <img  
+                  className="aspect-[3/4] w-full max-w-sm rounded-2xl object-cover shadow-glow"
+	                src="/images/profile.png"
+	                alt="Profile"
+                />
               </div>
             </div>
           </div>

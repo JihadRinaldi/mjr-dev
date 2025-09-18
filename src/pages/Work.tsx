@@ -111,6 +111,74 @@ const Work = () => {
       </section>
 
       {/* Projects Section */}
+      <section className="py-24 sm:py-32 bg-accent/50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Featured Projects
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              Some of the projects I'm most proud of
+            </p>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+            {[
+              {
+                title: "Kana Mastery",
+                description: "nteractive PWA for mastering Japanese Hiragana with quizzes, progress tracking, and offline support.",
+                image: "/images/kana-mastery.png",
+                tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "PWA"],
+                link: "https://kana-mastery.vercel.app/"
+              },
+              {
+                title: "Wordle Bahasa Indonesia",
+                description: "Wordle Game using Bahasa Indonesia Dictionary",
+                image: "/images/wordle-indonesia.png",
+                tech: ["React", "Typescript", "Hooks"],
+                link: "https://jihad-wordle.netlify.app/"
+              },
+              {
+                title: "Currency Exchange",
+                description: "Currency exchange rate app with real-time updates and historical data visualization using frankfurter.app API",
+                image: "/images/currency-exchange.png",
+                tech: ["React", "Typescript", "Hooks", "Jest"],
+                link: "https://fx-watch.vercel.app/"
+              },
+            ].map((project, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-glow transition-all duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    {project.title}
+                    <Button variant="ghost" size="icon" asChild>
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <FaExternalLinkAlt className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <CardDescription>{project.description}</CardDescription>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
